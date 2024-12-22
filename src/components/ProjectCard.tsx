@@ -23,13 +23,18 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
     console.error(`Failed to load image: ${project.imageUrl}`);
   };
 
-  // تحديث دالة تحويل المسار لتتعامل مع المسارات العربية بشكل صحيح
   const getImageUrl = (url: string) => {
-    return url
+    // Remove the base path and normalize slashes
+    const normalizedPath = url
       .replace(/\\/g, '/')
-      .replace('D:/WIPSIET/agro-industry-showcase-81-main/agro-industry-showcase-81-main/public', '')
-      .replace('المشاريع الخدمية', 'مشروعات خدمية')
-      .replace('المشروعات الخدمية', 'مشروعات خدمية');
+      .replace('D:/WIPSIET/agro-industry-showcase-81-main/agro-industry-showcase-81-main/public', '');
+    
+    // Extract the filename and folder structure after 'public'
+    const pathParts = normalizedPath.split('/');
+    const fileName = pathParts[pathParts.length - 1];
+    
+    // Construct the correct path
+    return `/images/مشروعات خدمية/${fileName}`;
   };
 
   return (
