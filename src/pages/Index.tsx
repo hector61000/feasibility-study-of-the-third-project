@@ -25,11 +25,11 @@ const Index = () => {
   const totalCost = selectedProjects.reduce((sum, project) => sum + project.studyCost, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#a4c23e] to-[#8ba834]" dir="rtl">
+    <div className="min-h-screen bg-gradient-to-b from-[#a4c23e] to-[#8ba834] font-[Cairo]" dir="rtl">
       <header className="relative bg-gradient-to-r from-[#234426] to-[#2c5530] shadow-2xl border-b-4 border-[#F97316]/20">
-        <div className="container mx-auto px-6 py-8 flex justify-between items-center">
+        <div className="container mx-auto px-6 py-6 flex justify-between items-center">
           <div className="flex-1 text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4 drop-shadow-lg">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-2 drop-shadow-lg">
               جرين لايت للمشروعات ودراسة الجدوى
             </h1>
             <p className="text-xl text-gray-100 font-medium drop-shadow">
@@ -47,7 +47,7 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-6">
         <CategoryNav
           activeCategory={activeCategory}
           onCategoryChange={setActiveCategory}
