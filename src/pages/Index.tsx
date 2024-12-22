@@ -27,23 +27,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#a4c23e] to-[#8ba834] font-[Cairo]" dir="rtl">
       <header className="relative bg-gradient-to-r from-[#234426] to-[#2c5530] shadow-2xl border-b-4 border-[#F97316]/20">
-        <div className="container mx-auto px-6 py-6 flex justify-between items-center">
-          <div className="flex-1 text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-2 drop-shadow-lg">
-              جرين لايت للمشروعات ودراسة الجدوى
+        <div className="container mx-auto px-6 py-6">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight mb-2 drop-shadow-lg">
+              <span className="text-[#F97316] drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">جرين</span>{' '}
+              <span className="text-[#F2FCE2] drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">لايت</span>
             </h1>
-            <p className="text-xl text-gray-100 font-medium drop-shadow">
-              دراسات جدوى احترافية لمشروعك القادم
+            <p className="text-2xl text-white/90 font-semibold tracking-wide mb-1 drop-shadow-md">
+              للمشروعات ودراسة الجدوى
             </p>
+            <div className="absolute top-0 right-0 h-full w-32 opacity-10 bg-[url('/decorative-pattern.svg')] bg-repeat-y"></div>
           </div>
-          <motion.img 
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            src="/logo.png" 
-            alt="Green Light Logo" 
-            className="h-24 w-auto ml-8 rounded-xl shadow-xl ring-2 ring-white/20"
-          />
         </div>
       </header>
 
