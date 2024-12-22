@@ -36,7 +36,7 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl border-2 border-[#F97316]/20 hover:border-[#F97316] w-full max-w-7xl mx-auto"
+      className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl border-4 border-[#F97316]/20 hover:border-[#F97316] w-full max-w-7xl mx-auto"
     >
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-2/5 relative">
