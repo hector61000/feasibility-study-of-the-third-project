@@ -84,6 +84,10 @@ const Index = () => {
           totalCost={totalCost}
         />
       </main>
+
+      <footer className="bg-[#234426] text-white py-4 text-center mt-20">
+        <p className="text-lg">جميع الحقوق محفوظة لشركة جرين لايت © {new Date().getFullYear()}</p>
+      </footer>
     </div>
   );
 };

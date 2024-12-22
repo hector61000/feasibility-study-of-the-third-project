@@ -9,16 +9,16 @@ interface CategoryNavProps {
 
 export const CategoryNav = ({ activeCategory, onCategoryChange }: CategoryNavProps) => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 px-4 py-4">
+    <div className="flex flex-wrap justify-center gap-6 px-6 py-8">
       <motion.button
         key="all"
         onClick={() => onCategoryChange(null)}
-        className={`relative px-8 py-3 text-lg font-bold rounded-full transition-all duration-200
+        className={`relative px-10 py-4 text-xl font-bold rounded-xl transition-all duration-300 border-2
           ${activeCategory === null 
-            ? 'text-white bg-emerald-600 shadow-lg scale-110' 
-            : 'text-gray-600 hover:text-emerald-600'
+            ? 'text-white bg-emerald-600 border-emerald-700 shadow-lg scale-105' 
+            : 'text-emerald-700 border-emerald-500 hover:bg-emerald-50'
           }`}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         جميع المشروعات
@@ -27,12 +27,12 @@ export const CategoryNav = ({ activeCategory, onCategoryChange }: CategoryNavPro
         <motion.button
           key={category.id}
           onClick={() => onCategoryChange(category.id)}
-          className={`relative px-8 py-3 text-lg font-bold rounded-full transition-all duration-200
+          className={`relative px-10 py-4 text-xl font-bold rounded-xl transition-all duration-300 border-2
             ${activeCategory === category.id 
-              ? 'text-white bg-emerald-600 shadow-lg scale-110' 
-              : 'text-gray-600 hover:text-emerald-600'
+              ? 'text-white bg-emerald-600 border-emerald-700 shadow-lg scale-105' 
+              : 'text-emerald-700 border-emerald-500 hover:bg-emerald-50'
             }`}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           {category.label}
