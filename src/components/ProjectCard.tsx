@@ -64,15 +64,15 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
         </div>
         <div className="flex justify-end pt-2">
           <div className="flex items-center gap-2">
-            <label htmlFor={`check-${project.id}`} className="text-sm font-medium text-gray-700">
-              اختر المشروع
-            </label>
             <Checkbox
               id={`check-${project.id}`}
               checked={isSelected}
               onCheckedChange={handleCheckboxChange}
               className="border-[#F97316] data-[state=checked]:bg-[#F97316] data-[state=checked]:border-[#F97316]"
             />
+            <label htmlFor={`check-${project.id}`} className="text-sm font-medium text-gray-700">
+              اختر المشروع
+            </label>
           </div>
         </div>
       </div>
