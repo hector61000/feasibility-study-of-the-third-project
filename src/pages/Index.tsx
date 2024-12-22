@@ -28,15 +28,15 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#a4c23e] to-[#8ba834] font-[Cairo]" dir="rtl">
       <header className="relative bg-gradient-to-r from-[#234426] to-[#2c5530] shadow-2xl border-b-4 border-[#F97316]/20">
         <div className="container mx-auto px-6 py-6">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight mb-2 drop-shadow-lg">
+          <div className="text-right pr-12 relative">
+            <div className="absolute top-0 right-0 h-full w-32 opacity-10 bg-[url('/decorative-pattern.svg')] bg-repeat-y"></div>
+            <h1 className="text-5xl font-bold tracking-tight mb-2 font-['Noto_Kufi_Arabic'] relative z-10">
               <span className="text-[#F97316] drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">جرين</span>{' '}
               <span className="text-[#F2FCE2] drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">لايت</span>
             </h1>
-            <p className="text-2xl text-white/90 font-semibold tracking-wide mb-1 drop-shadow-md">
-              للمشروعات ودراسة الجدوى
+            <p className="text-2xl text-white/90 font-semibold tracking-wide mb-1 drop-shadow-md font-['Noto_Kufi_Arabic']">
+              للمشروعات ودراسات الجدوى
             </p>
-            <div className="absolute top-0 right-0 h-full w-32 opacity-10 bg-[url('/decorative-pattern.svg')] bg-repeat-y"></div>
           </div>
         </div>
       </header>

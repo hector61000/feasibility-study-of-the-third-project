@@ -24,17 +24,16 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   };
 
   const getImageUrl = (url: string) => {
-    // Remove the base path and normalize slashes
-    const normalizedPath = url
-      .replace(/\\/g, '/')
-      .replace('D:/WIPSIET/agro-industry-showcase-81-main/agro-industry-showcase-81-main/public', '');
+    // Extract just the filename from the full path
+    const fileName = url.split('\\').pop()?.split('/').pop();
+    if (!fileName) return '/placeholder.svg';
     
-    // Extract the filename and folder structure after 'public'
-    const pathParts = normalizedPath.split('/');
-    const fileName = pathParts[pathParts.length - 1];
+    // Get the category folder name from the path
+    const categoryMatch = url.match(/مشروعات\s[^\\\/]+/);
+    const category = categoryMatch ? categoryMatch[0] : '';
     
     // Construct the correct path
-    return `/images/مشروعات خدمية/${fileName}`;
+    return `/images/${category}/${fileName}`;
   };
 
   return (
