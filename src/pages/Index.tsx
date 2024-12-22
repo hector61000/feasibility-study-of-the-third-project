@@ -61,14 +61,17 @@ const Index = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`fixed ${isMobile ? 'bottom-4 left-4 scale-75 origin-bottom-left' : 'bottom-8 left-8'} bg-gradient-to-br from-[#F97316] to-[#ea580c] rounded-2xl p-8 shadow-2xl border-2 border-white/80 backdrop-blur-sm`}
+          className={`fixed ${
+            isMobile ? 'bottom-4 left-4 scale-75 origin-bottom-left' : 'bottom-8 left-8'
+          } bg-gradient-to-br from-[#F97316] to-[#ea580c] rounded-2xl p-4 shadow-2xl border-2 border-white/80 backdrop-blur-sm`}
+          style={{ width: '180px', height: '120px' }}
         >
-          <div className="text-2xl font-bold mb-4 text-white drop-shadow">
+          <div className="text-xl font-bold mb-2 text-white drop-shadow">
             الإجمالي: {totalCost.toLocaleString()} جنيه
           </div>
           <Button 
             onClick={() => setIsOrderFormOpen(true)}
-            className="w-full bg-white text-[#F97316] hover:bg-gray-100 font-bold text-lg py-4 rounded-xl transition-all duration-300 hover:scale-105"
+            className="w-full bg-white text-[#F97316] hover:bg-gray-100 font-bold text-base py-2 rounded-xl transition-all duration-300 hover:scale-105"
           >
             اطلب الآن
           </Button>

@@ -23,6 +23,11 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
     console.error(`Failed to load image: ${project.imageUrl}`);
   };
 
+  // Convert Windows path to web path
+  const getImageUrl = (url: string) => {
+    return url.replace(/\\/g, '/').replace('D:/WIPSIET/agro-industry-showcase-81-main/agro-industry-showcase-81-main/public', '');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -35,7 +40,7 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
           <div className="relative overflow-hidden" style={{ aspectRatio: '640/425' }}>
             <div className={`absolute inset-0 bg-gray-200 ${!isLoaded && !imageError ? 'animate-pulse' : ''}`} />
             <img
-              src={imageError ? '/placeholder.svg' : project.imageUrl}
+              src={imageError ? '/placeholder.svg' : getImageUrl(project.imageUrl)}
               alt={project.title}
               className={`h-full w-full object-cover transition-all duration-700 ${
                 isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
@@ -64,7 +69,7 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
                 <span className="text-blue-700 font-medium text-lg md:text-xl">تكلفة الدراسة:</span>
                 <span className="font-bold text-blue-600 text-lg md:text-xl">{project.studyCost.toLocaleString()} جنيه</span>
               </div>
-              <div className="flex justify-end pt-2">
+              <div className="flex justify-end">
                 <div className="flex items-center gap-3">
                   <Checkbox
                     id={`check-${project.id}`}
