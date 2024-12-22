@@ -11,10 +11,16 @@ interface ProjectCardProps {
 export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleCheckboxChange = (checked: boolean) => {
     setIsSelected(checked);
     onSelect?.(project, checked);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
+    console.error(`Failed to load image: ${project.imageUrl}`);
   };
 
   return (
@@ -24,15 +30,16 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
       exit={{ opacity: 0, y: -20 }}
       className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl border border-gray-200 w-full max-w-3xl mx-auto"
     >
-      <div className="aspect-[16/9] relative overflow-hidden">
-        <div className={`absolute inset-0 bg-gray-200 ${!isLoaded ? 'animate-pulse' : ''}`} />
+      <div className="aspect-[640/425] relative overflow-hidden">
+        <div className={`absolute inset-0 bg-gray-200 ${!isLoaded && !imageError ? 'animate-pulse' : ''}`} />
         <img
-          src={project.imageUrl}
+          src={imageError ? '/placeholder.svg' : project.imageUrl}
           alt={project.title}
           className={`h-full w-full object-cover transition-all duration-700 ${
             isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
           }`}
           onLoad={() => setIsLoaded(true)}
+          onError={handleImageError}
         />
         <div className="absolute top-4 left-4">
           <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-sm">

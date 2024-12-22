@@ -1,4 +1,4 @@
-export type ProjectCategory = 'food' | 'industrial' | 'service' | 'commercial';
+export type ProjectCategory = 'agriculture' | 'industrial' | 'service' | 'livestock';
 
 export interface Project {
   id: number;
