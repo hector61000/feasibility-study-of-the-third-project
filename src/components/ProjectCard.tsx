@@ -24,13 +24,21 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   };
 
   const getImageUrl = (url: string) => {
-    const fileName = url.split('\\').pop()?.split('/').pop();
-    if (!fileName) return '/placeholder.svg';
-    
-    const categoryMatch = url.match(/مشروعات\s[^\\\/]+/);
-    const category = categoryMatch ? categoryMatch[0] : '';
-    
-    return `/images/${category}/${fileName}`;
+    try {
+      // Remove any leading slashes and 'public' from the path
+      const cleanPath = url.replace(/^\/+|^public\/+/, '');
+      
+      // Split the path and get the category folder name
+      const parts = cleanPath.split('/');
+      const categoryFolder = parts[parts.length - 2] || '';
+      const fileName = parts[parts.length - 1] || '';
+      
+      // Construct the correct path
+      return `/images/${categoryFolder}/${fileName}`;
+    } catch (error) {
+      console.error('Error processing image URL:', error);
+      return '/placeholder.svg';
+    }
   };
 
   return (
