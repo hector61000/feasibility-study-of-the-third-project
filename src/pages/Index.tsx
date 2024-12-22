@@ -6,11 +6,13 @@ import { ProjectGrid } from '@/components/ProjectGrid';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { OrderForm } from '@/components/OrderForm';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | null>(null);
   const [selectedProjects, setSelectedProjects] = useState<Project[]>([]);
   const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleProjectSelect = (project: Project, isSelected: boolean) => {
     if (isSelected) {
@@ -59,7 +61,7 @@ const Index = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="fixed bottom-8 left-8 bg-gradient-to-br from-[#F97316] to-[#ea580c] rounded-2xl p-8 shadow-2xl border-2 border-white/80 backdrop-blur-sm"
+          className={`fixed ${isMobile ? 'bottom-4 left-4 scale-75 origin-bottom-left' : 'bottom-8 left-8'} bg-gradient-to-br from-[#F97316] to-[#ea580c] rounded-2xl p-8 shadow-2xl border-2 border-white/80 backdrop-blur-sm`}
         >
           <div className="text-2xl font-bold mb-4 text-white drop-shadow">
             الإجمالي: {totalCost.toLocaleString()} جنيه
