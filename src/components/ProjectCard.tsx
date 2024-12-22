@@ -24,15 +24,12 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   };
 
   const getImageUrl = (url: string) => {
-    // Extract just the filename from the full path
     const fileName = url.split('\\').pop()?.split('/').pop();
     if (!fileName) return '/placeholder.svg';
     
-    // Get the category folder name from the path
     const categoryMatch = url.match(/مشروعات\s[^\\\/]+/);
     const category = categoryMatch ? categoryMatch[0] : '';
     
-    // Construct the correct path
     return `/images/${category}/${fileName}`;
   };
 
@@ -58,37 +55,37 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
           </div>
-          <div className="flex justify-center p-4 bg-white/90 backdrop-blur-sm">
-            <div className="flex items-center gap-3">
+          <div className="flex justify-center p-2 sm:p-4 bg-white/90 backdrop-blur-sm">
+            <div className="flex items-center gap-2 sm:gap-3">
               <Checkbox
                 id={`check-${project.id}`}
                 checked={isSelected}
                 onCheckedChange={handleCheckboxChange}
-                className="h-6 w-6 border-[#F97316] data-[state=checked]:bg-[#F97316] data-[state=checked]:border-[#F97316]"
+                className="h-4 w-4 sm:h-6 sm:w-6 border-[#F97316] data-[state=checked]:bg-[#F97316] data-[state=checked]:border-[#F97316]"
               />
-              <label htmlFor={`check-${project.id}`} className="text-lg font-medium text-gray-700">
+              <label htmlFor={`check-${project.id}`} className="text-base sm:text-lg font-medium text-gray-700">
                 اختر المشروع
               </label>
             </div>
           </div>
         </div>
-        <div className="w-full md:w-3/5 p-6">
-          <div className="flex flex-col gap-4">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+        <div className="w-full md:w-3/5 p-3 sm:p-6">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
               {project.title}
             </h3>
-            <div className="grid grid-cols-1 gap-4 text-right">
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                <span className="text-gray-600 font-medium text-lg md:text-xl">رأس المال:</span>
-                <span className="font-bold text-gray-900 text-lg md:text-xl">{project.capital.toLocaleString()} جنيه</span>
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 text-right">
+              <div className="flex items-center justify-between p-2 sm:p-4 bg-gray-50 rounded-xl">
+                <span className="text-gray-600 font-medium text-base sm:text-lg md:text-xl">رأس المال:</span>
+                <span className="font-bold text-gray-900 text-base sm:text-lg md:text-xl">{project.capital.toLocaleString()} جنيه</span>
               </div>
-              <div className="flex items-center justify-between p-4 bg-emerald-50 rounded-xl">
-                <span className="text-emerald-700 font-medium text-lg md:text-xl">الأرباح الشهرية:</span>
-                <span className="font-bold text-emerald-600 text-lg md:text-xl">{project.monthlyProfit.toLocaleString()} جنيه</span>
+              <div className="flex items-center justify-between p-2 sm:p-4 bg-emerald-50 rounded-xl">
+                <span className="text-emerald-700 font-medium text-base sm:text-lg md:text-xl">الأرباح الشهرية:</span>
+                <span className="font-bold text-emerald-600 text-base sm:text-lg md:text-xl">{project.monthlyProfit.toLocaleString()} جنيه</span>
               </div>
-              <div className="flex items-center justify-between p-4 bg-blue-50 rounded-xl">
-                <span className="text-blue-700 font-medium text-lg md:text-xl">تكلفة الدراسة:</span>
-                <span className="font-bold text-blue-600 text-lg md:text-xl">{project.studyCost.toLocaleString()} جنيه</span>
+              <div className="flex items-center justify-between p-2 sm:p-4 bg-blue-50 rounded-xl">
+                <span className="text-blue-700 font-medium text-base sm:text-lg md:text-xl">تكلفة الدراسة:</span>
+                <span className="font-bold text-blue-600 text-base sm:text-lg md:text-xl">{project.studyCost.toLocaleString()} جنيه</span>
               </div>
             </div>
           </div>
