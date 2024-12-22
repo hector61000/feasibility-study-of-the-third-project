@@ -32,7 +32,7 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
     >
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-2/5 relative">
-          <div className="aspect-[16/9] md:aspect-[4/3] relative overflow-hidden">
+          <div className="relative overflow-hidden" style={{ aspectRatio: '640/425' }}>
             <div className={`absolute inset-0 bg-gray-200 ${!isLoaded && !imageError ? 'animate-pulse' : ''}`} />
             <img
               src={imageError ? '/placeholder.svg' : project.imageUrl}
@@ -42,6 +42,7 @@ export const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
               }`}
               onLoad={() => setIsLoaded(true)}
               onError={handleImageError}
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
           </div>
         </div>
