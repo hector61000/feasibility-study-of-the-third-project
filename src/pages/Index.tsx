@@ -22,7 +22,16 @@ const Index = () => {
     }
   };
 
-  const totalCost = selectedProjects.reduce((sum, project) => sum + project.studyCost, 0);
+  const calculateTotalCost = () => {
+    const count = selectedProjects.length;
+    if (count === 0) return 0;
+    if (count === 1) return 150;
+    if (count === 2) return 250;
+    if (count === 3) return 350;
+    return 350 + (count - 3) * 75;
+  };
+
+  const totalCost = calculateTotalCost();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#a4c23e] to-[#8ba834] font-[Cairo]" dir="rtl">

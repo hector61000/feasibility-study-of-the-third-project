@@ -4,7 +4,6 @@ export interface Project {
   id: number;
   title: string;
   description: string;
-  imageUrl: string;
   category: ProjectCategory;
   capital: number;
   monthlyProfit: number;
